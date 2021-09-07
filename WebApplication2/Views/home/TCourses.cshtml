@@ -1,0 +1,151 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using flex.Models;
+@model Tuple<List<courses>, string>
+<html lang="en">
+<head>
+    <title>Courses Management</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: blanchedalmond;
+        }
+
+        .left_bar {
+            display: block;
+            width: 150px;
+            height: 100%;
+            background-color: cadetblue;
+            top: 0;
+            color: white;
+            left: 0;
+            position: fixed;
+        }
+
+            .left_bar a {
+                color: white;
+            }
+
+        .Left_Bar1 {
+            text-align: center;
+            color: black;
+            font-size: 1.25em;
+            margin-top: 10px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .box2 {
+            width: 94%;
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+
+            .box2 h1 {
+                padding-left: 10px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: white;
+                background-color: cadetblue;
+                font-size: 20px;
+            }
+
+        .totalHOME {
+            margin-left: 150px;
+            margin-right: 15px;
+        }
+
+        .box_2nd1 {
+            height: 200px;
+            margin-top: 30px;
+            border-bottom: 2px solid red;
+        }
+
+        .box1 {
+            height: 100px;
+            margin-top: 30px;
+            border-bottom: 2px solid red;
+        }
+
+        .totalHome h1 {
+            font-size: 03px;
+        }
+
+        .mine {
+            font-size: 17px;
+            margin-bottom: 5px;
+            margin-right: 300px;
+            display: inline-block;
+        }
+
+        .margin_Top {
+            margin-top: 70px;
+        }
+
+        .mine1 {
+            font-size: 17px;
+            margin-bottom: 5px;
+            margin-right: 300px;
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="left_bar ">
+        <nav>
+            <a class="Left_Bar1" href="./ThomePage">Home</a> <br>
+            <a class="Left_Bar1" href="./TAttendance">Attendance</a> <br>
+            <a class="Left_Bar1" href="./TTeacher">Teacher Management</a> <br>
+            <a class="Left_Bar1" href="./TStudent">Student Management</a><br>
+            <a class="Left_Bar1" href="./TNotification">Notifications</a><br>
+            <a class="Left_Bar1" href="./TSociety">Societies</a><br>
+            <a class="Left_Bar1" href="./TMarks">Marks</a><br>
+            <a class="Left_Bar1" href="./TGrades">Grade Assignment</a><br>
+            <a class="Left_Bar1" href="./TCourses">Courses</a><br>
+            <a class="Left_Bar1" href="./TStudentLogin">StudentLogin</a><br>
+            <a class="Left_Bar1" href="./TRegSociety">Reg Society</a><br>
+        </nav>
+    </div>
+    <div class="totalHOME">
+        <h3>COURSES MANAGEMENT</h3>
+        <br />
+        <h3>COURSES LIST</h3>
+
+        <table border="1">
+            <thead><tr><td><b> Semester </b> </td> <td><b> Course Code </b></td><td><b> Course Name </b></td></tr></thead>
+
+            @foreach (courses c in Model.Item1)
+            {
+                <tr>
+                    <td>@c.SemID</td>
+                    <td>@c.Code</td>
+                    <td>@c.name</td>
+                </tr>
+            }
+        </table>
+
+        <br /> <br />
+        
+        <h3>TO ADD A COURSE KINDLY FILL THIS FORM</h3><br />
+        <form method="post" action="./AddCourse">
+            <b>
+                <label style="color:black"> Semester ID:<br /></label> &nbsp;&nbsp;&nbsp <input placeholder="RollNumber of student" name="Semester">
+                <br />
+                <br />
+                <label style="color:black"> Course Code:<br /></label> &nbsp;&nbsp;&nbsp <input placeholder="Course Code" name="Code">
+                <br />
+                <br />
+                <label style="color:black"> Course Name:<br /></label> &nbsp;&nbsp;&nbsp <input placeholder="Course Name" name="Name">
+                <br />
+                <br />
+                <input type="submit" value="Submit" /> &nbsp;&nbsp;&nbsp; <label>@Model.Item2</label>
+            </b>
+        </form>
+    </div>
+</body>
+</html>

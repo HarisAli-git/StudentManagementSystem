@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+@model string
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Login</title>
+</head>
+<body>
+        <div>
+            <img src="tree.jpg" style="width:1353px;height:635px">
+        </div>
+        <!-- inline CSS on div tag;  external CSS on text boxes;-->
+        <div style="margin-left:10%;padding-top:20px;padding-left:50px; margin-top:-40%;width:25%;">
+            <h1 style="font-size:60px;color:black;text-align:center">SMC-(Admin) SYSTEM</h1>
+            <br>
+            <br />
+            <div>
+                <form method="post" action="../Home/Tauthenticate">
+                    <label style="color:black"> <b> UserName:<br /> </label> &nbsp;&nbsp;&nbsp <input placeholder="UserName" id="nameField" name="UserName">
+                    <br />
+                    <br />
+                    <label style="color:black"> Password:<br /></label> &nbsp;&nbsp;&nbsp <input placeholder="password" id="passwordField" name="password">
+                    <br />
+                    <br />
+                    <br />
+                    <b>
+                        <input type="submit" id="submitButton" value="Submit" /> &nbsp;&nbsp;&nbsp; <label>@Model</label>
+                    </b>
+                </form>
+        </div>
+    </body>
+</html>
+
+<!-- This is styling -->
+
+<style>
+    #submitButton {
+        margin-left: 100px;
+        border-radius: 25px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin-left: 38%;
+        cursor: pointer;
+        width: 100px;
+        height: 35px;
+    }
+
+    #nameField {
+        border-radius: 25px;
+        padding: 10px;
+        width: 200px;
+        height: 0px;
+    }
+
+    #passwordField {
+        border-radius: 25px;
+        padding: 10px;
+        width: 200px;
+        height: 0px;
+    }
+</style>

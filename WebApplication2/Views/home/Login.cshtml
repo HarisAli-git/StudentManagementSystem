@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+@model string
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <handlers>
+        <remove name="BlockViewHandler" />
+        <add name="BlockViewHandler" path="*" verb="*" preCondition="integratedMode" type="System.Web.HttpNotFoundHandler" />
+    </handlers>
+    <div>
+        <img src="~/Views/home/books.png" style="width:1353px;height:635px" />
+    </div>
+    <!-- inline CSS on div tag;  external CSS on text boxes;-->
+    <div style="margin-left:10%;padding-top:20px;padding-left:50px; margin-top:-40%;width:25%;">
+        <h1 style="font-size:60px;color:black;text-align:center">SMC SYSTEM</h1></div>
+        <br>
+        <br />
+        <div>
+            <form method="post" action="../Home/authenticate">
+                <label style="color:black"> <b> Rollno.: <br /> </label> &nbsp;&nbsp;&nbsp <input placeholder="RollNo." id="nameField" name="Roll">
+                <br />
+                <br />
+                <label style="color:black"> Password: <br /></label> &nbsp;&nbsp;&nbsp <input placeholder="password" id="passwordField" name="Password">
+                <br />
+                <br />
+                <br />
+                <b >
+                <input type="submit" value="Submit" id="submitButton"/> &nbsp;&nbsp;&nbsp; <label>@Model</label>
+                </b>
+                <br />
+                <br />
+            </form>
+            <form action="../Home/TLogin" method="post">Are you an Admin? If Yes, then click to Redirect...
+                <input type="submit" name="Yes" value="Click Here" />
+            </form>
+    </div>
+
+    <style type="text/css" media="screen">
+        #submitButton {
+        margin-left:100px;
+        border-radius: 25px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        margin-left:38%;
+        cursor: pointer;
+        width:100px;
+        height:35px
+        }
+
+        #nameField {
+        border-radius: 25px;
+        padding: 10px;
+        width: 200px;
+        height: 0px;
+        }
+
+        #passwordField {
+        border-radius: 25px;
+        padding: 10px;
+        width: 200px;
+        height: 0px;
+        }
+    </style>
+    
+</body>
+</html>

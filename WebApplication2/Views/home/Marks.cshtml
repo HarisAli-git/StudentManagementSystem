@@ -1,0 +1,148 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using flex.Models;
+@model List<Marks>
+<html lang="en">
+<head>
+    <title>Marks</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: blanchedalmond;
+        }
+
+        .left_bar {
+            display: block;
+            width: 150px;
+            height: 100%;
+            background-color: cadetblue;
+            top: 0;
+            color: white;
+            left: 0;
+            position: fixed;
+        }
+
+            .left_bar a {
+                color: white;
+            }
+
+        .Left_Bar1 {
+            text-align: center;
+            color: black;
+            font-size: 1.3em;
+            margin-top: 55px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .box2 {
+            width: 94%;
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+
+            .box2 h1 {
+                padding-left: 10px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: white;
+                background-color: cadetblue;
+                font-size: 20px;
+            }
+
+        .totalHOME {
+            margin-left: 150px;
+            margin-right: 15px;
+        }
+
+        .box_2nd1 {
+            height: 200px;
+            margin-top: 30px;
+            border-bottom: 2px solid red;
+        }
+
+        .box1 {
+            height: 100px;
+            margin-top: 30px;
+            border-bottom: 2px solid red;
+        }
+
+        .totalHome h1 {
+            font-size: 03px;
+        }
+
+        .mine {
+            font-size: 17px;
+            margin-bottom: 5px;
+            margin-right: 300px;
+            display: inline-block;
+        }
+
+        .margin_Top {
+            margin-top: 70px;
+        }
+
+        .mine1 {
+            font-size: 17px;
+            margin-bottom: 5px;
+            margin-right: 300px;
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="left_bar ">
+        <nav>
+            <a class="Left_Bar1" href="./homePage">Home</a> <br>
+            <a class="Left_Bar1" href="./Attendance">Attendance</a> <br>
+            <a class="Left_Bar1" href="./CourseRegisteration">Course Rgistration</a> <br>
+            <a class="Left_Bar1" href="./Marks">Marks</a> <br>
+            <a class="Left_Bar1" href="./Transcript">Transcript</a>
+            <a class="Left_Bar1" href="./Society">Society</a>
+            <a class="Left_Bar1" href="./Notification">Notification</a>
+        </nav>
+    </div>
+    <div class="totalHOME">
+        <h3>STUDENT INFORMATION | Marks</h3>
+        @if (!Model.Any()) {
+            <tr><td>Currently no marks have been posted yet</td></tr>
+        }
+        else
+        {
+        <table border="1">
+            <thead><tr><td> Course Code </td> <td>Quiz1 obt. </td> <td> Quiz1 total </td> <td> Quiz2 obt.</td> <td> Quiz2 total </td> <td> Quiz3 obt. </td> <td> Quiz3 total </td><td> A1 obt. </td> <td>A1 total </td><td> A2 obt. </td> <td> A2 total </td><td> A3 obt. </td><td> A3 total </td><td> MID Obt. </td> <td> MID total </td> <td> FINAL </td> <td> FINAL total </td> <td> GRAND TOTAL </td></tr></thead>
+            
+            @foreach (Marks m in Model)
+            {
+                <tr>
+                    <td>@m.course_cose</td>
+                    <td>@m.Quiz1</td>
+                    <td>@m.Quiz1Total</td>
+                    <td>@m.Quiz2</td>
+                    <td>@m.Quiz2Total</td>
+                    <td>@m.Quiz3</td>
+                    <td>@m.Quiz3Total</td>
+                    <td>@m.Ass1</td>
+                    <td>@m.Ass1Total</td>
+                    <td>@m.Ass2</td>
+                    <td>@m.Ass2Total</td>
+                    <td>@m.Ass3</td>
+                    <td>@m.Ass3Total</td>
+                    <td>@m.Mid</td>
+                    <td>@m.MidTotal</td>
+                    <td>@m.Final</td>
+                    <td>@m.FinalTotal</td>
+                    <td>@m.GrandTotal</td>
+                </tr>
+            }
+
+        </table>
+        }
+    </div>
+</body>
+</html>

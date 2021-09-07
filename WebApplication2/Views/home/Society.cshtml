@@ -1,0 +1,146 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using flex.Models;
+@model Tuple <List<Society>, RegSociety> 
+<html lang="en"><head>
+    <title>Student Society</title>
+    <style type="text/css" media="screen">
+        body {
+            background-color: blanchedalmond;
+        }
+
+        .left_bar {
+            display: block;
+            width: 150px;
+            height: 100%;
+            background-color: cadetblue;
+            top: 0;
+            color: white;
+            left: 0;
+            position: fixed;
+        }
+
+            .left_bar a {
+                color: white;
+            }
+
+        .Left_Bar1 {
+            text-align: center;
+    color:black;
+    font-size: 1.3em;
+    margin-top:55px;
+    display: block;
+    text-decoration: none;
+        }
+
+        .box2 {
+            width: 94%;
+            margin-left: 3%;
+            margin-right: 3%;
+        }
+
+            .box2 h1 {
+                padding-left: 10px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+                color: white;
+                background-color: cadetblue;
+                font-size: 20px;
+            }
+
+        .totalHOME {
+            margin-left: 150px;
+            margin-right: 15px;
+        }
+
+        .box_2nd1 {
+            height: 200px;
+            margin-top: 30px;
+            border-bottom: 2px solid red;
+        }
+
+        .box1 {
+            height: 100px;
+            margin-top: 30px;
+            border-bottom: 2px solid red;
+        }
+
+        .totalHome h1 {
+            font-size: 03px;
+        }
+
+        .mine {
+            font-size: 17px;
+            margin-bottom: 5px;
+            margin-right: 300px;
+            display: inline-block;
+        }
+
+        .margin_Top {
+            margin-top: 70px;
+        }
+
+        .mine1 {
+            font-size: 17px;
+            margin-bottom: 5px;
+            margin-right: 300px;
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div class="left_bar ">
+        <nav>
+            <a class="Left_Bar1" href="./homePage">Home</a> <br>
+            <a class="Left_Bar1" href="./Attendance">Attendance</a> <br>
+            <a class="Left_Bar1" href="./CourseRegisteration">Course Rgistration</a> <br>
+            <a class="Left_Bar1" href="./Marks">Marks</a> <br>
+            <a class="Left_Bar1" href="./Transcript">Transcript</a>
+            <a class="Left_Bar1" href="./Society">Society</a>
+            <a class="Left_Bar1" href="./Notification">Notification</a>
+        </nav>
+    </div>
+    <div class="totalHOME">
+        <h3>SOCITIES INFORMATION</h3>
+
+        <table border="1">
+            <thead><tr><td>Name</td> <td>Code</td></tr></thead>
+
+            @foreach (Society s in Model.Item1)
+            {
+                <tr>
+                    <td>@s.Name</td>
+                    <td>@s.Code</td>
+                </tr>
+            }
+
+        </table>
+        <br /><br />
+        <h3>TO REGISTER IN A SOCIETY KINDLY FILL THIS FORM</h3><br />
+        <form method="post" action="./RegSociety"> 
+            <b>
+            <label style="color:black"> SocietyName:<br /> </label> &nbsp;&nbsp;&nbsp <input placeholder="SocietyName" id="SocietyName" name="name">
+            <br />
+            <br />
+            <label style="color:black"> SocietyCode:<br /></label> &nbsp;&nbsp;&nbsp <input placeholder="SocietyCode" id="SocietyCode" name="Code">
+            <br />
+            <br />
+            <label style="color:black"> Rollno:<br /></label> &nbsp;&nbsp;&nbsp <input placeholder="roll" id="roll" name="roll">
+            <br />
+            <br />
+            <label style="color:black"> position:<br /></label> &nbsp;&nbsp;&nbsp <input placeholder="position" id="position" name="position">
+            <br />
+            <br />
+            <br />
+            <input type="submit" value="Submit" /> &nbsp;&nbsp;&nbsp; <label>@Model.Item2</label>
+            </b>
+        </form>
+    </div>
+</body>
+</html>
